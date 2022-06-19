@@ -37,6 +37,8 @@ let
       substituteInPlace libqtile/backend/x11/xcursors.py \
         --replace libxcb-cursor.so.0 ${xcbutilcursor.out}/lib/libxcb-cursor.so.0
     '';
+    #       libpulse = "${libpulseaudio.out}/lib/libpulse${stdenv.hostPlatform.extensions.sharedLibrary}";
+
 
     SETUPTOOLS_SCM_PRETEND_VERSION = version;
 
@@ -65,6 +67,7 @@ let
     ];
 
     buildInputs = [
+      libpulseaudio
       libinput
       wayland
       wlroots
