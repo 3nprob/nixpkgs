@@ -7,6 +7,7 @@
 , pango
 , pkg-config
 , libinput
+, libpulseaudio
 , libxkbcommon
 , wayland
 , wlroots
@@ -37,8 +38,6 @@ let
       substituteInPlace libqtile/backend/x11/xcursors.py \
         --replace libxcb-cursor.so.0 ${xcbutilcursor.out}/lib/libxcb-cursor.so.0
     '';
-    #       libpulse = "${libpulseaudio.out}/lib/libpulse${stdenv.hostPlatform.extensions.sharedLibrary}";
-
 
     SETUPTOOLS_SCM_PRETEND_VERSION = version;
 
@@ -55,6 +54,8 @@ let
       python-dateutil
       dbus-python
       dbus-next
+      iwlib
+      libpulseaudio
       mpd2
       psutil
       pyxdg
