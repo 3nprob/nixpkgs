@@ -11,19 +11,20 @@
 , libxkbcommon
 , wayland
 , wlroots
+, wirelesstools
 , xcbutilcursor
 }:
 
 let
   unwrapped = python3Packages.buildPythonPackage rec {
     pname = "qtile";
-    version = "0.21.0";
+    version = "0.21.0-dev";
 
     src = fetchFromGitHub {
-      owner = "qtile";
+      owner = "3nprob";
       repo = "qtile";
-      rev = "v${version}";
-      sha256 = "3QCI1TZIh1LcWuklVQkqgR1MQphi6CzZKc1UZcytV0k=";
+      rev = "v0.22-dev";
+      sha256 = "sha256-w+pc43uath1vuDoPl1mytxIy5ozPUhpZhq32S/kMw2s=";
     };
 
     patches = [
@@ -64,14 +65,17 @@ let
       pywlroots
       types-pytz
       types-dateutil
+      wirelesstools
       xkbcommon
     ];
 
     buildInputs = [
       libpulseaudio
       libinput
+      python3Packages.iwlib
       wayland
       wlroots
+      wirelesstools
       libxkbcommon
     ];
 
