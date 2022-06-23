@@ -1,6 +1,7 @@
 { lib
 , buildPythonPackage
 , fetchPypi
+, cffi
 , gcc
 , wirelesstools
 , isPy27
@@ -15,11 +16,11 @@ buildPythonPackage rec {
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "1ajmflvvlkflrcmqmkrx0zaira84z8kv4ssb2jprfwvjh8vfkysb";
+    sha256 = "sha256-qAX2WXpw7jABq6jwOft7Lct13BXE54UvVZT9Y3kZbaE=";
   };
 
   buildInputs = [ gcc ];
-  propagatedBuildInputs = [ wirelesstools ];
+  propagatedBuildInputs = [ wirelesstools cffi ];
 
   meta = {
     description = "Package for interfacing with iwlib, providing an implementation to the wireless tools in Linux.";
