@@ -59,6 +59,8 @@ let
       pygobject3
       pywayland
       pywlroots
+      types-pytz
+      types-dateutil
       xkbcommon
     ];
 
