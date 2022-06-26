@@ -24,7 +24,7 @@ let
       owner = "3nprob";
       repo = "qtile";
       rev = "v0.22-dev";
-      sha256 = "sha256-w+pc43uath1vuDoPl1mytxIy5ozPUhpZhq32S/kMw2s=";
+      sha256 = "sha256-gWJIs5hLpmnL/cC3k+GyfxBmnPVFkUgIzdufQrxNGQw=";
     };
 
     patches = [
