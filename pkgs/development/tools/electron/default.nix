@@ -122,4 +122,13 @@ rec {
     aarch64-darwin = "97adf13306c9b3b304d3e9ddf68f5f7fb9b79c9a1342114e3671182f3cc9e808";
     headers = "0gl30q2igr9c8sjlhyj5w57dm5navpkas5hnz9yl7sasbx66v10v";
   };
+
+  electron_19 = mkElectron "19.0.6" {
+    armv7l-linux = "05b5a8dd8d3b2c31ed45a03836195dd26cd9a92099fd0b4d0b5624aceed24567";
+    aarch64-linux = "45693263337a9e74a8507771b09ecf183771b43c441cfcd48fadc9e55445dd06";
+    x86_64-linux = "23d70a59df8af593935082b359754891c9acccea67a4ae2652aa817753005163";
+    x86_64-darwin = "1b7aa4fa6678dcfcd9c3430fc429276d818a9ef8719f5db33a6b80cf75d602b9";
+    aarch64-darwin = "42c38bd828ecc29e5b4798d21a04d49c41febe379cc11d55538dcf395e293ec1";
+    headers = "";
+  };
 }
