@@ -355,7 +355,7 @@ in
       services.dleyna-server.enable = mkDefault true;
       services.power-profiles-daemon.enable = mkDefault true;
       services.gnome.at-spi2-core.enable = true;
-      services.gnome.evolution-data-server.enable = true;
+      services.gnome.evolution-data-server.enable = false;
       services.gnome.gnome-keyring.enable = true;
       services.gnome.gnome-online-accounts.enable = mkDefault true;
       services.gnome.gnome-online-miners.enable = true;
