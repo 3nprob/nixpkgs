@@ -10,6 +10,14 @@ in
   options.services.xserver.windowManager.qtile = {
     enable = mkEnableOption "qtile";
 
+    extraOptions = mkOption {
+      default = "";
+      type = types.separatedString " ";
+      description = ''
+        Command-line options to pass to <command>qtile start</command>.
+      '';
+    };
+
     package = mkPackageOption pkgs "qtile" { };
   };
 
@@ -17,7 +25,7 @@ in
     services.xserver.windowManager.session = [{
       name = "qtile";
       start = ''
-        ${cfg.package}/bin/qtile start &
+        ${cfg.package}/bin/qtile start ${cfg.extraOptions} &
         waitPID=$!
       '';
     }];
