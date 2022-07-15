@@ -5,7 +5,7 @@
 , fetchFromGitHub
 , chromaprint
 , cmake
-, faad2
+, faad2Support ? true, faad2
 , ffmpeg
 , fftw
 , flac
@@ -66,7 +66,6 @@ mkDerivation rec {
 
   buildInputs = [
     chromaprint
-    faad2
     ffmpeg
     fftw
     flac
@@ -109,7 +108,8 @@ mkDerivation rec {
     upower
     vamp-plugin-sdk
     wavpack
-  ];
+  ]
+    ++ lib.optional faad2Support faad2;
 
   qtWrapperArgs = [
     "--set LOCALE_ARCHIVE ${glibcLocales}/lib/locale/locale-archive"
@@ -120,7 +120,8 @@ mkDerivation rec {
   # see https://github.com/mixxxdj/mixxx/blob/2.3.2/CMakeLists.txt#L1381-L1392
   cmakeFlags = [
     "-DINSTALL_USER_UDEV_RULES=OFF"
-  ];
+  ]
+    ++ lib.optional (!faad2Support) "-DNO_FAAD";
 
   postInstall = lib.optionalString stdenv.isLinux ''
     rules="$src/res/linux/mixxx-usb-uaccess.rules"
